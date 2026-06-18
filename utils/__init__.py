@@ -1,0 +1,1 @@
+# KidsCreate AI utilities
