@@ -1,0 +1,51 @@
+name: CI — KidsCreate AI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  lint-and-syntax:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Cache pip
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
+          restore-keys: ${{ runner.os }}-pip-
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Syntax check — all Python files
+        run: |
+          python -m py_compile app.py
+          python -m py_compile utils/__init__.py
+          python -m py_compile utils/quota.py
+          python -m py_compile utils/styles.py
+          python -m py_compile pages/kid_zone.py
+          python -m py_compile pages/parent_portal.py
+          echo "✅ All files pass syntax check"
+
+  deploy-notice:
+    needs: lint-and-syntax
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    steps:
+      - name: Auto-deploy via Streamlit Cloud
+        run: |
+          echo "✅ CI passed — Streamlit Cloud auto-deploys from main branch"
+          echo "🚀 Dashboard: https://share.streamlit.io"
