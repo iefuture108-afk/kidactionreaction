@@ -1,8 +1,5 @@
 """
 styles.py — Shared CSS design system for KidsCreate AI
-Injected via st.markdown(GLOBAL_CSS, unsafe_allow_html=True) on each page.
-Note: Components rendered via components.html() run in a sandboxed iframe
-      and do NOT inherit this CSS — those components carry their own inline styles.
 """
 
 GLOBAL_CSS = """
@@ -19,7 +16,6 @@ html, body, [class*="css"] { font-family: 'Nunito', sans-serif; }
 #MainMenu, footer, header { visibility: hidden; }
 .stDeployButton { display: none; }
 
-/* ── Buttons ── */
 .stButton > button {
     border-radius: 50px !important;
     font-family: 'Nunito', sans-serif !important;
@@ -53,7 +49,6 @@ html, body, [class*="css"] { font-family: 'Nunito', sans-serif; }
     color: #FF6B6B !important;
 }
 
-/* ── Inputs ── */
 .stTextInput > div > div > input,
 .stTextArea > div > div > textarea {
     border-radius: 14px !important;
@@ -72,7 +67,6 @@ html, body, [class*="css"] { font-family: 'Nunito', sans-serif; }
     border: 2px solid #ecddd0 !important;
 }
 
-/* ── Tabs ── */
 .stTabs [data-baseweb="tab-list"] {
     background: #fff !important;
     border-radius: 16px !important;
@@ -93,7 +87,6 @@ html, body, [class*="css"] { font-family: 'Nunito', sans-serif; }
     color: #fff !important;
 }
 
-/* ── Cards ── */
 .kc-card {
     background: #fff;
     border-radius: 20px;
@@ -112,7 +105,6 @@ html, body, [class*="css"] { font-family: 'Nunito', sans-serif; }
 }
 .kc-card-sub { font-size: 0.82rem; color: #aaa; margin: 0; font-weight: 600; }
 
-/* ── Credit bar ── */
 .credit-bar {
     background: #fff;
     border-radius: 16px;
@@ -132,7 +124,6 @@ html, body, [class*="css"] { font-family: 'Nunito', sans-serif; }
 .cdot.on  { background: #FFD93D; box-shadow: 0 0 0 2px rgba(255,180,0,0.4); }
 .cdot.off { background: #ecddd0; }
 
-/* ── Page header ── */
 .pg-header {
     display: flex; align-items: center; gap: 14px;
     margin-bottom: 24px; padding-bottom: 18px;
@@ -142,7 +133,6 @@ html, body, [class*="css"] { font-family: 'Nunito', sans-serif; }
 .pg-title { font-family: 'Baloo 2', cursive; font-size: 1.9rem; font-weight: 800; color: #1A1A2E; margin: 0; }
 .pg-desc  { font-size: 0.85rem; color: #bbb; margin: 2px 0 0; font-weight: 600; }
 
-/* ── Result dark panel ── */
 .result-dark {
     background: linear-gradient(145deg, #1a1a2e, #16213e);
     border-radius: 22px;
@@ -157,14 +147,12 @@ html, body, [class*="css"] { font-family: 'Nunito', sans-serif; }
 .result-empty-hint { color: rgba(255,255,255,0.55); font-size: 1rem; font-weight: 700; }
 .result-empty-text { color: rgba(255,255,255,0.35); font-size: 0.9rem; font-weight: 600; line-height: 2; margin-top: 14px; }
 
-/* ── Milestone progress ── */
 .ms-bar-wrap {
     background: #f5ece4; border-radius: 50px;
     height: 10px; overflow: hidden; margin: 8px 0 6px;
 }
 .ms-bar-fill { height: 100%; border-radius: 50px; transition: width 0.5s ease; }
 
-/* ── Insight card ── */
 .insight-wrap {
     background: linear-gradient(135deg, #f0f4ff, #f8f0ff);
     border: 1.5px solid #c8b8f0;
@@ -176,14 +164,12 @@ html, body, [class*="css"] { font-family: 'Nunito', sans-serif; }
 }
 .insight-body { font-size: 0.9rem; color: #333; line-height: 1.7; }
 
-/* ── Age badge ── */
 .age-badge {
     display: inline-block; border-radius: 50px; padding: 4px 13px;
     font-size: 0.78rem; font-weight: 700; color: #fff;
     background: linear-gradient(135deg, #6BCB77, #44aa55);
 }
 
-/* ── Divider with text ── */
 .kc-divider {
     display: flex; align-items: center; gap: 10px;
     margin: 18px 0; color: #ccc; font-size: 0.75rem;
@@ -193,7 +179,6 @@ html, body, [class*="css"] { font-family: 'Nunito', sans-serif; }
     content: ''; flex: 1; height: 1px; background: #ecddd0;
 }
 
-/* ── How-it-works cards ── */
 .how-card {
     background: #fff; border-radius: 18px; padding: 20px 14px;
     text-align: center; border: 1.5px solid #ecddd0;
@@ -203,7 +188,6 @@ html, body, [class*="css"] { font-family: 'Nunito', sans-serif; }
 .how-title { font-family: 'Baloo 2', cursive; font-size: 1rem; font-weight: 700; color: #1A1A2E; }
 .how-desc  { font-size: 0.78rem; color: #aaa; font-weight: 600; margin-top: 3px; }
 
-/* ── Upload zone ── */
 .upload-zone {
     background: #fff8f0; border: 2px dashed #f0d4b0;
     border-radius: 16px; padding: 16px; text-align: center;
@@ -211,7 +195,6 @@ html, body, [class*="css"] { font-family: 'Nunito', sans-serif; }
     margin-bottom: 10px;
 }
 
-/* ── Hero banner ── */
 .hero {
     background: linear-gradient(135deg, #FF6B6B 0%, #FF9E53 50%, #FFD93D 100%);
     border-radius: 26px; padding: 40px 36px 34px;
