@@ -1,7 +1,5 @@
 """
 quota.py — Daily credit manager for KidsCreate AI
-Each user gets DAILY_LIMIT free AI actions per browser session per day.
-Session state is scoped per user tab — correct for Streamlit Cloud.
 """
 import streamlit as st
 from datetime import date
@@ -10,7 +8,6 @@ DAILY_LIMIT = 5
 
 
 def _key(zone: str = "kids") -> str:
-    """Unique session key per zone per calendar day."""
     return f"quota_{zone}_{date.today().isoformat()}"
 
 
@@ -19,7 +16,6 @@ def get_remaining(zone: str = "kids") -> int:
 
 
 def consume(zone: str = "kids") -> bool:
-    """Deduct one credit. Returns True if credit was available, False if exhausted."""
     k = _key(zone)
     used = st.session_state.get(k, 0)
     if used >= DAILY_LIMIT:
@@ -29,10 +25,6 @@ def consume(zone: str = "kids") -> bool:
 
 
 def render_credit_bar(zone: str = "kids") -> bool:
-    """
-    Renders a visual credit bar and returns True if credits remain.
-    Call once at the top of each page.
-    """
     remaining = get_remaining(zone)
     dots = "".join(
         f'<div class="cdot {"on" if i < remaining else "off"}"></div>'
