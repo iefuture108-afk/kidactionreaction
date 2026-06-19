@@ -79,7 +79,7 @@ for col, icon, name, desc in zip(api_cols, [
     ("🖼️", "Pollinations.ai",  "Image generation\nNo key · No limits"),
     ("🤖", "Gemini 1.5 Flash", "AI insights (optional free key)\n15 req/min · 1M tokens/day"),
     ("🎤", "Web Speech API",   "Voice recognition\nBuilt into Chrome/Edge"),
-])
+]):
     with col:
         st.markdown(f"""
         <div class="how-card">
