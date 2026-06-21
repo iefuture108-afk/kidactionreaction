@@ -75,11 +75,12 @@ with col2:
 st.markdown('<div class="kc-divider">Powered entirely by free APIs — zero cost</div>', unsafe_allow_html=True)
 
 api_cols = st.columns(3)
-for col, icon, name, desc in zip(api_cols, [
+api_items = [
     ("🖼️", "Pollinations.ai",  "Image generation\nNo key · No limits"),
     ("🤖", "Gemini 1.5 Flash", "AI insights (optional free key)\n15 req/min · 1M tokens/day"),
     ("🎤", "Web Speech API",   "Voice recognition\nBuilt into Chrome/Edge"),
-]):
+]
+for col, (icon, name, desc) in zip(api_cols, api_items):
     with col:
         st.markdown(f"""
         <div class="how-card">
