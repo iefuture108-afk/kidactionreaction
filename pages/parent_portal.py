@@ -402,12 +402,13 @@ if st.session_state.pop("run_analysis", False) and has_credits:
 st.markdown('<div class="kc-divider" style="margin-top:32px">The four development domains</div>',
             unsafe_allow_html=True)
 d_cols = st.columns(4)
-for col, icon, title, desc in zip(d_cols, [
+domain_items = [
     ("🏃", "Motor",    "Body control, coordination, and physical movement"),
     ("🤝", "Social",   "Connecting, playing, and understanding emotions"),
     ("🧠", "Cognitive","Thinking, learning, and problem-solving"),
     ("🗣️", "Language", "Communication, understanding, and speaking"),
-]):
+]
+for col, (icon, title, desc) in zip(d_cols, domain_items):
     with col:
         st.markdown(
             '<div class="how-card">'
